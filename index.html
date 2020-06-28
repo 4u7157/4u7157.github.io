@@ -60,7 +60,26 @@ body {font-size:16px;}
 
 <div id="Downloads" class="tabcontent">
   <h2 class="w3-xxxlarge w3-text-red"><b>Downloads</b></h1>
-  <p>W.I.P a way to scrape github release</p>
+<div><label for="random">Variant:</label>
+<select id="random" name="random" onchange="Selectrandom(this.value);">
+<option value="negative">Variant</option>
+<option value="oneui">OneUI Non Treble</option>
+<option value="oneuit">OneUI Treble</option>
+<option value="aosp">AOSP Non treble</option>
+<option value="aospt">AOSP Treble</option>
+</select>
+</div>
+<div id="randomtypebox"><label for="randomtype">Device:</label>
+<select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
+<option value="negative">Model</option>
+<option value="J710">J710X</option>
+<option value="J701">J701X</option>
+<option value="A320">A320X</option>
+<option value="G610">G610X</option>
+</select>
+
+<p id="link"></p>
+</div>
 </div>
 
 <div id="Changelogs" class="tabcontent">
@@ -75,6 +94,25 @@ body {font-size:16px;}
 
 <!-- End page content -->
 </div>
+
+<script>
+function Selectrandom() {
+  var a = document.getElementById("link");
+  var d = document.getElementById("random").value;
+  var dType = document.getElementById("randomtypebox");
+  var e = document.getElementById("randomtype").value;
+  if(d == "negative")
+    dType.style.display = "none";
+  else
+    dType.style.display = "block";
+
+  if(e == "negative")
+    a.innerHTML = "";
+  else
+    a.innerHTML = '<a href=' + "http://github.com/4u7157/DOWNLOADS/releases/latest/download/" + d + "-" + e + ".zip" + '>Download</a>';
+}
+Selectrandom();
+</script>
 
 <script>
 function openTab(evt, tabName) {
