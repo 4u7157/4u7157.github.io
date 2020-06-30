@@ -3,6 +3,7 @@
 <title>Nitro Zeus</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 /* W3.CSS 4.13 June 2019 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
@@ -340,6 +341,7 @@ body {font-size:16px;}
 </select>
 
 <p id="link"></p>
+<p id="version"></p>
 </div>
 </div>
 
@@ -363,6 +365,7 @@ body {font-size:16px;}
 <script>
 function Selectrandom() {
   var a = document.getElementById("link");
+  var b = document.getElementById("version");
   var d = document.getElementById("random").value;
   var dType = document.getElementById("randomtypebox");
   var e = document.getElementById("randomtype").value;
@@ -375,6 +378,9 @@ function Selectrandom() {
     a.innerHTML = "";
   else
     a.innerHTML = '<a href=' + "http://github.com/4u7157/DOWNLOADS/releases/latest/download/" + d + "-" + e + ".zip" + '>Download</a>';
+    $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
+    b.innerHTML = "Latest release: " + json[0].tag_name
+	}); 
 }
 Selectrandom();
 </script>
