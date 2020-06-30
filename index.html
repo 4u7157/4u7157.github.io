@@ -369,18 +369,20 @@ function Selectrandom() {
   var d = document.getElementById("random").value;
   var dType = document.getElementById("randomtypebox");
   var e = document.getElementById("randomtype").value;
-  if(d == "negative")
-    dType.style.display = "none";
-  else
+  if(d != "negative")
     dType.style.display = "block";
-
-  if(e == "negative")
-    a.innerHTML = "";
   else
+    dType.style.display = "none";
+
+  if(e != "negative") {
     a.innerHTML = '<a href=' + "http://github.com/4u7157/DOWNLOADS/releases/latest/download/" + d + "-" + e + ".zip" + '>Download</a>';
     $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
     b.innerHTML = "Latest release: " + json[0].tag_name
-	}); 
+	});
+	}
+  else
+    a.innerHTML = "";
+    b.innerHTML = "";
 }
 Selectrandom();
 </script>
