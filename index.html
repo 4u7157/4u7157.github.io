@@ -349,7 +349,7 @@ body {font-size:16px;}
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Changelogs</b></h1>
   </div>
-  <p>V1: Initial release</p> 
+  <p id="changes"></p>
 </div>
 
 <div id="Contact" class="tabcontent">
@@ -385,6 +385,14 @@ function Selectrandom() {
     b.innerHTML = "";
 }
 Selectrandom();
+</script>
+
+<script>
+$.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
+     $.each(json, function( index, e ){
+          document.getElementById("changes").innerHTML += e.tag_name + ":<br>" + e.body + "<br><br>";
+     });
+});
 </script>
 
 <script>
