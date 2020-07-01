@@ -322,9 +322,14 @@ body {font-size:16px;}
 <div id="Downloads" class="tabcontent">
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Downloads</b></h1>
-    <p id="version"></p>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p id="version"></p>
     <div>
+    <select id="version11" name="version11" onchange="Selectrandom(this.value);">
+    <option value="negative">Version</option>
+    </select>
+    </div>
+    <div id="hideme">
     <select id="random" name="random" onchange="Selectrandom(this.value);">
     <option value="negative">Variant</option>
     <option value="oneui">OneUI Non Treble</option>
@@ -367,20 +372,30 @@ body {font-size:16px;}
 
 <script>
 function Selectrandom() {
-  var a = document.getElementById("link");;
+  var a = document.getElementById("link");
+  var b = document.getElementById("version11").value;
   var d = document.getElementById("random").value;
   var dType = document.getElementById("randomtypebox");
+  var hideme = document.getElementById("hideme");
   var e = document.getElementById("randomtype").value;
   if(d != "negative")
     dType.style.display = "block";
   else
     dType.style.display = "none";
 
-  if(e != "negative") {
-    a.innerHTML = '<a href=' + "http://github.com/4u7157/DOWNLOADS/releases/latest/download/" + d + "-" + e + ".zip" + '>Download</a>';
-    }
+  if(b != "negative")
+    hideme.style.display = "block";
   else
-    a.innerHTML = "";
+    hideme.style.display = "none";
+      
+  if(e == "negative")
+      a.innerHTML = "";
+  else if(b == "negative") {
+      a.innerHTML = "";
+      dType.style.display = "none";
+      }
+  else
+      a.innerHTML = '<a href=' + "https://github.com/4u7157/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download</a>';
 }
 Selectrandom();
 </script>
@@ -389,6 +404,7 @@ Selectrandom();
 $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
      $.each(json, function( index, e ){
           document.getElementById("changes").innerHTML += e.tag_name.fontsize(6) + "<br>" + e.body.fontsize(4) + "<br><br>";
+          $('#version11').append($('<option/>', { value: e.tag_name, text : e.tag_name }));
      });
 document.getElementById("version").innerHTML = "Latest release: " + json[0].tag_name;
 });
