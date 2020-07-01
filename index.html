@@ -1,218 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Nitro Zeus</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-</style>
+<head>
+	<title>Nitro Zeus</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	<style>
+	body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+	body {font-size:16px;}
+	.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+	.w3-half img:hover{opacity:1}
+	</style>
+</head>
 <body>
+	<!-- Sidebar/menu -->
+	<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" id="mySidebar" style="z-index:3;width:300px;font-weight:bold;">
+		<br>
+		<a class="w3-button w3-hide-large w3-display-topleft" href="javascript:void(0)" onclick="w3_close()" style="width:100%;font-size:22px">Close Menu</a>
+		<div class="w3-container">
+			<h3 class="w3-padding-64"><b>Nitro Zeus<br>
+			Kernel</b></h3>
+		</div>
+		<div class="w3-bar-block">
+			<a class="w3-bar-item w3-button w3-hover-white" id="defaultOpen" onclick="openTab(event, 'Home')">Home</a> <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Downloads')">Downloads</a> <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Changelogs')">Changelogs</a> <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Contact')">Contact</a>
+		</div>
+	</nav><!-- Top menu on small screens -->
+	<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+		<a class="w3-button w3-red w3-margin-right" href="javascript:void(0)" onclick="w3_open()">☰</a> <span>Nitro Zeus Kernel</span>
+	</header><!-- Overlay effect when opening sidebar on small screens -->
+	<div class="w3-overlay w3-hide-large" id="myOverlay" onclick="w3_close()" style="cursor:pointer" title="close side menu"></div><!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left:340px;margin-right:40px">
+		<!-- Modal for full size images on click-->
+		<div class="w3-modal w3-black" id="modal01" onclick="this.style.display='none'" style="padding-top:0">
+			<span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+			<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+				<img class="w3-image" id="img01">
+				<p id="caption"></p>
+			</div>
+		</div>
+		<div class="tabcontent" id="Home">
+			<div class="w3-container" id="showcase" style="margin-top:80px">
+				<h1 class="w3-jumbo"><b>Nitro Zeus Kernel</b></h1>
+				<hr class="w3-round" style="width:50px;border:5px solid red">
+				<p>Nitro Zeus is a custom kernel for Exynos 7870 SoC devices<br></p>
+				<p>Based on Android Q source from Samsung OSRC<br></p>
+				<p>Supports every Exynos 7870 Device<br>
+				<br></p>
+				<p>Features:<br></p>
+				<p>F2FS Support<br></p>
+				<p>zRAM support<br></p>
+			</div>
+		</div>
+		<div class="tabcontent" id="Downloads">
+			<div class="w3-container" id="showcase" style="margin-top:80px">
+				<h1 class="w3-jumbo"><b>Downloads</b></h1>
+				<hr class="w3-round" style="width:50px;border:5px solid red">
+				<p id="version"></p>
+				<div>
+					<select id="version11" name="version11" onchange="Selectrandom(this.value);">
+						<option value="negative">
+							Version
+						</option>
+					</select>
+				</div>
+				<div id="hideme">
+					<select id="random" name="random" onchange="Selectrandom(this.value);">
+						<option value="negative">
+							Model
+						</option>
+						<option value="J710">
+							J710X
+						</option>
+						<option value="J701">
+							J701X
+						</option>
+						<option value="A320">
+							A320X
+						</option>
+						<option value="G610">
+							G610X
+						</option>
+						<option value="J600">
+							J600X
+						</option>
+						<option value="A600">
+							A600X
+						</option>
+						<option value="J737">
+							J737X
+						</option>
+						<option value="M105">
+							M105X
+						</option>
+					</select>
+				</div>
+				<div id="randomtypebox">
+					<select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
+						<option value="negative">
+							Variant
+						</option>
+						<option value="oneuit">
+							OneUI Treble
+						</option>
+						<option value="aospt">
+							AOSP Treble
+						</option>
+						<option value="oneui">
+							OneUI Non Treble
+						</option>
+						<option value="aosp">
+							AOSP Non Treble
+						</option>
+					</select>
+					<p id="link"></p>
+				</div>
+			</div>
+		</div>
+		<div class="tabcontent" id="Changelogs">
+			<div class="w3-container" id="showcase" style="margin-top:80px">
+				<h1 class="w3-jumbo"><b>Changelogs</b></h1>
+				<hr class="w3-round" style="width:50px;border:5px solid red">
+				<p id="changes"></p>
+			</div>
+		</div>
+		<div class="tabcontent" id="Contact">
+			<div class="w3-container" id="showcase" style="margin-top:80px">
+				<h1 class="w3-jumbo"><b>Contact</b></h1>
+				<hr class="w3-round" style="width:50px;border:5px solid red">
+				<p><a href="https://t.me/NitroZeusKernel">Click to join my Telegram group.</a></p>
+			</div>
+		</div><!-- End page content -->
+	</div>
+	<script>
+	function Selectrandom() {
+	 var a = document.getElementById("link");
+	 var b = document.getElementById("version11").value;
+	 var d = document.getElementById("random").value;
+	 var dType = document.getElementById("randomtypebox");
+	 var hideme = document.getElementById("hideme");
+	 var e = document.getElementById("randomtype").value;
+	 if(d != "negative")
+	   dType.style.display = "block";
+	 else
+	   dType.style.display = "none";
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Nitro Zeus<br>Kernel</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Home')" id="defaultOpen">Home</a>
-    <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Downloads')">Downloads</a>
-    <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Changelogs')">Changelogs</a>
-    <a class="w3-bar-item w3-button w3-hover-white" onclick="openTab(event, 'Contact')">Contact</a>
-  </div>
-</nav>
+	 if(b != "negative")
+	   hideme.style.display = "block";
+	 else
+	   hideme.style.display = "none";
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Nitro Zeus Kernel</span>
-</header>
+	 if(e == "negative")
+	     a.innerHTML = "";
+	 else if(b == "negative") {
+	     a.innerHTML = "";
+	     dType.style.display = "none";
+	     }
+	 else
+	     a.innerHTML = '<a href=' + "https://github.com/4u7157/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download<\/a>';
+	}
+	Selectrandom();
+	</script> 
+	<script>
+	$('#random').on('change', function() {
+	 var optionExists = ($("#randomtype option[value='oneui']").length > 0);
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+	 if (this.value == "A600") {
+	   $("#randomtype option[value='oneui']").remove();
+	   $("#randomtype option[value='aosp']").remove(); }
+	 else if (this.value == "J600") {
+	   $("#randomtype option[value='oneui']").remove();
+	   $("#randomtype option[value='aosp']").remove(); }
+	 else if (this.value == "J737") {
+	   $("#randomtype option[value='oneui']").remove();
+	   $("#randomtype option[value='aosp']").remove(); }
+	 else if (this.value == "M105") {
+	   $("#randomtype option[value='oneui']").remove();
+	   $("#randomtype option[value='aosp']").remove(); }
+	 else if (!optionExists){
+	   $('#randomtype').append("<option value='oneui'>OneUI Non Treble<\/option>");
+	   $('#randomtype').append("<option value='aosp'>AOSP Non treble<\/option>");
+	 }
+	});
+	</script> 
+	<script>
+	$.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
+	    $.each(json, function( index, e ){
+	         document.getElementById("changes").innerHTML += e.tag_name.fontsize(6) + "<br>" + e.body.fontsize(4) + "<br><br>";
+	         $('#version11').append($('<option/>', { value: e.tag_name, text : e.tag_name }));
+	    });
+	document.getElementById("version").innerHTML = "Latest release: " + json[0].tag_name;
+	});
+	</script> 
+	<script>
+	function openTab(evt, tabName) {
+	 var i, tabcontent, tablinks;
+	 tabcontent = document.getElementsByClassName("tabcontent");
+	 for (i = 0; i < tabcontent.length; i++) {
+	   tabcontent[i].style.display = "none";
+	 }
+	 tablinks = document.getElementsByClassName("tablinks");
+	 for (i = 0; i < tablinks.length; i++) {
+	   tablinks[i].className = tablinks[i].className.replace(" active", "");
+	 }
+	 document.getElementById(tabName).style.display = "block";
+	 evt.currentTarget.className += " active";
+	}
+	</script> 
+	<script>
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+	</script> 
+	<script>
+	// Script to open and close sidebar
+	function w3_open() {
+	 document.getElementById("mySidebar").style.display = "block";
+	 document.getElementById("myOverlay").style.display = "block";
+	}
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
-<div id="Home" class="tabcontent">
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Nitro Zeus Kernel</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Nitro Zeus is a custom kernel for Exynos 7870 SoC devices<br></p>
-    <p>Based on Android Q source from Samsung OSRC<br></p>
-    <p>Supports every Exynos 7870 Device<br><br></p>
-    <p>Features:<br></p>
-    <p>F2FS Support<br></p>
-    <p>zRAM support<br></p>
-  </div>
-</div>
-
-<div id="Downloads" class="tabcontent">
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Downloads</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p id="version"></p>
-    <div>
-    <select id="version11" name="version11" onchange="Selectrandom(this.value);">
-    <option value="negative">Version</option>
-    </select>
-    </div>
-    <div id="hideme">
-    <select id="random" name="random" onchange="Selectrandom(this.value);">
-    <option value="negative">Model</option>
-    <option value="J710">J710X</option>
-    <option value="J701">J701X</option>
-    <option value="A320">A320X</option>
-    <option value="G610">G610X</option>
-    <option value="J600">J600X</option>
-    <option value="A600">A600X</option>
-    <option value="J737">J737X</option>
-    <option value="M105">M105X</option>
-    </select>
-    </div>
-    <div id="randomtypebox">
-    <select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
-    <option value="negative">Variant</option>
-    <option value="oneuit">OneUI Treble</option>
-    <option value="aospt">AOSP Treble</option>
-    <option value="oneui">OneUI Non Treble</option>
-    <option value="aosp">AOSP Non Treble</option>
-    </select>
-    <p id="link"></p>
-    </div>
-  </div>
-</div>
-
-<div id="Changelogs" class="tabcontent">
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Changelogs</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p id="changes"></p>
-  </div>
-</div>
-
-<div id="Contact" class="tabcontent">
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Contact</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p><a href="https://t.me/NitroZeusKernel">Click to join my Telegram group.</a></p>
-  </div>
-</div>
-
-<!-- End page content -->
-</div>
-
-<script>
-function Selectrandom() {
-  var a = document.getElementById("link");
-  var b = document.getElementById("version11").value;
-  var d = document.getElementById("random").value;
-  var dType = document.getElementById("randomtypebox");
-  var hideme = document.getElementById("hideme");
-  var e = document.getElementById("randomtype").value;
-  if(d != "negative")
-    dType.style.display = "block";
-  else
-    dType.style.display = "none";
-
-  if(b != "negative")
-    hideme.style.display = "block";
-  else
-    hideme.style.display = "none";
-
-  if(e == "negative")
-      a.innerHTML = "";
-  else if(b == "negative") {
-      a.innerHTML = "";
-      dType.style.display = "none";
-      }
-  else
-      a.innerHTML = '<a href=' + "https://github.com/4u7157/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download</a>';
-}
-Selectrandom();
-</script>
-
-<script>
-$('#random').on('change', function() {
-  var optionExists = ($("#randomtype option[value='oneui']").length > 0);
-
-  if (this.value == "A600") {
-    $("#randomtype option[value='oneui']").remove();
-    $("#randomtype option[value='aosp']").remove(); }
-  else if (this.value == "J600") {
-    $("#randomtype option[value='oneui']").remove();
-    $("#randomtype option[value='aosp']").remove(); }
-  else if (this.value == "J737") {
-    $("#randomtype option[value='oneui']").remove();
-    $("#randomtype option[value='aosp']").remove(); }
-  else if (this.value == "M105") {
-    $("#randomtype option[value='oneui']").remove();
-    $("#randomtype option[value='aosp']").remove(); }
-  else if (!optionExists){
-    $('#randomtype').append("<option value='oneui'>OneUI Non Treble</option>");
-    $('#randomtype').append("<option value='aosp'>AOSP Non treble</option>");
-  }
-});
-</script>
-
-<script>
-$.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
-     $.each(json, function( index, e ){
-          document.getElementById("changes").innerHTML += e.tag_name.fontsize(6) + "<br>" + e.body.fontsize(4) + "<br><br>";
-          $('#version11').append($('<option/>', { value: e.tag_name, text : e.tag_name }));
-     });
-document.getElementById("version").innerHTML = "Latest release: " + json[0].tag_name;
-});
-</script>
-
-<script>
-function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-
-<script>
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-</script>
-
+	function w3_close() {
+	 document.getElementById("mySidebar").style.display = "none";
+	 document.getElementById("myOverlay").style.display = "none";
+	}
+	</script>
 </body>
 </html>
