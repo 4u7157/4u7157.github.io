@@ -331,20 +331,24 @@ body {font-size:16px;}
     </div>
     <div id="hideme">
     <select id="random" name="random" onchange="Selectrandom(this.value);">
-    <option value="negative">Variant</option>
-    <option value="oneui">OneUI Non Treble</option>
-    <option value="oneuit">OneUI Treble</option>
-    <option value="aosp">AOSP Non treble</option>
-    <option value="aospt">AOSP Treble</option>
-    </select>
-    </div>
-    <div id="randomtypebox">
-    <select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
     <option value="negative">Model</option>
     <option value="J710">J710X</option>
     <option value="J701">J701X</option>
     <option value="A320">A320X</option>
     <option value="G610">G610X</option>
+    <option value="J600">J600X</option>
+    <option value="A600">A600X</option>
+    <option value="J737">J737X</option>
+    <option value="M105">M105X</option>
+    </select>
+    </div>
+    <div id="randomtypebox">
+    <select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
+    <option value="negative">Variant</option>
+    <option value="oneuit">OneUI Treble</option>
+    <option value="aospt">AOSP Treble</option>
+    <option value="oneui">OneUI Non Treble</option>
+    <option value="aosp">AOSP Non Treble</option>
     </select>
     <p id="link"></p>
     </div>
@@ -387,7 +391,7 @@ function Selectrandom() {
     hideme.style.display = "block";
   else
     hideme.style.display = "none";
-      
+
   if(e == "negative")
       a.innerHTML = "";
   else if(b == "negative") {
@@ -398,6 +402,29 @@ function Selectrandom() {
       a.innerHTML = '<a href=' + "https://github.com/4u7157/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download</a>';
 }
 Selectrandom();
+</script>
+
+<script>
+$('#random').on('change', function() {
+  var optionExists = ($("#randomtype option[value='oneui']").length > 0);
+
+  if (this.value == "A600") {
+    $("#randomtype option[value='oneui']").remove();
+    $("#randomtype option[value='aosp']").remove(); }
+  else if (this.value == "J600") {
+    $("#randomtype option[value='oneui']").remove();
+    $("#randomtype option[value='aosp']").remove(); }
+  else if (this.value == "J737") {
+    $("#randomtype option[value='oneui']").remove();
+    $("#randomtype option[value='aosp']").remove(); }
+  else if (this.value == "M105") {
+    $("#randomtype option[value='oneui']").remove();
+    $("#randomtype option[value='aosp']").remove(); }
+  else if (!optionExists){
+    $('#randomtype').append("<option value='oneui'>OneUI Non Treble</option>");
+    $('#randomtype').append("<option value='aosp'>AOSP Non treble</option>");
+  }
+});
 </script>
 
 <script>
