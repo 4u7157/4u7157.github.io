@@ -44,7 +44,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
 .w3-btn,.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
-.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 .w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
 .w3-btn.w3-disabled:hover,.w3-btn:disabled:hover{box-shadow:none}
 .w3-badge,.w3-tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}.w3-badge{border-radius:50%}
@@ -92,7 +92,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-hide{display:none!important}.w3-show-block,.w3-show{display:block!important}.w3-show-inline-block{display:inline-block!important}
 @media (max-width:1205px){.w3-auto{max-width:95%}}
 @media (max-width:600px){.w3-modal-content{margin:0 10px;width:auto!important}.w3-modal{padding-top:30px}
-.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}	
+.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}
 .w3-hide-small{display:none!important}.w3-mobile{display:block;width:100%!important}.w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
 .w3-dropdown-hover.w3-mobile,.w3-dropdown-hover.w3-mobile .w3-btn,.w3-dropdown-hover.w3-mobile .w3-button,.w3-dropdown-click.w3-mobile,.w3-dropdown-click.w3-mobile .w3-btn,.w3-dropdown-click.w3-mobile .w3-button{width:100%}}
 @media (max-width:768px){.w3-modal-content{width:500px}.w3-modal{padding-top:50px}}
@@ -306,61 +306,60 @@ body {font-size:16px;}
     </div>
   </div>
 
-<div id="Home" class="tabcontent"> 
+<div id="Home" class="tabcontent">
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Nitro Zeus Kernel</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Nitro Zeus is a custom kernel for Exynos 7870 SoC devices<br></p>
+    <p>Based on Android Q source from Samsung OSRC<br></p>
+    <p>Supports every Exynos 7870 Device<br><br></p>
+    <p>Features:<br></p>
+    <p>F2FS Support<br></p>
+    <p>zRAM support<br></p>
   </div>
-  <p>Nitro Zeus is a custom kernel for Exynos 7870 SoC devices<br></p>
-  <p>Based on Android Q source from Samsung OSRC<br></p>
-  <p>Supports every Exynos 7870 Device<br><br></p>
-  <p>Features:<br></p>
-  <p>F2FS Support<br></p>
-  <p>zRAM support<br></p>
 </div>
 
 <div id="Downloads" class="tabcontent">
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Downloads</b></h1>
+    <p id="version"></p>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+    <div>
+    <select id="random" name="random" onchange="Selectrandom(this.value);">
+    <option value="negative">Variant</option>
+    <option value="oneui">OneUI Non Treble</option>
+    <option value="oneuit">OneUI Treble</option>
+    <option value="aosp">AOSP Non treble</option>
+    <option value="aospt">AOSP Treble</option>
+    </select>
+    </div>
+    <div id="randomtypebox">
+    <select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
+    <option value="negative">Model</option>
+    <option value="J710">J710X</option>
+    <option value="J701">J701X</option>
+    <option value="A320">A320X</option>
+    <option value="G610">G610X</option>
+    </select>
+    <p id="link"></p>
+    </div>
   </div>
-<div>
-<select id="random" name="random" onchange="Selectrandom(this.value);">
-<option value="negative">Variant</option>
-<option value="oneui">OneUI Non Treble</option>
-<option value="oneuit">OneUI Treble</option>
-<option value="aosp">AOSP Non treble</option>
-<option value="aospt">AOSP Treble</option>
-</select>
-</div>
-<div id="randomtypebox">
-<select id="randomtype" name="randomtype" onchange="Selectrandom(this.value);">
-<option value="negative">Model</option>
-<option value="J710">J710X</option>
-<option value="J701">J701X</option>
-<option value="A320">A320X</option>
-<option value="G610">G610X</option>
-</select>
-
-<p id="link"></p>
-<p id="version"></p>
-</div>
 </div>
 
 <div id="Changelogs" class="tabcontent">
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Changelogs</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p id="changes"></p>
   </div>
-  <p id="changes"></p>
 </div>
 
 <div id="Contact" class="tabcontent">
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Contact</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p><a href="https://t.me/NitroZeusKernel">Click to join my Telegram group.</a></p>
   </div>
-  <p><a href="https://t.me/NitroZeusKernel">Click to join my Telegram group.</a></p>
 </div>
 
 <!-- End page content -->
@@ -368,8 +367,7 @@ body {font-size:16px;}
 
 <script>
 function Selectrandom() {
-  var a = document.getElementById("link");
-  var b = document.getElementById("version");
+  var a = document.getElementById("link");;
   var d = document.getElementById("random").value;
   var dType = document.getElementById("randomtypebox");
   var e = document.getElementById("randomtype").value;
@@ -380,13 +378,9 @@ function Selectrandom() {
 
   if(e != "negative") {
     a.innerHTML = '<a href=' + "http://github.com/4u7157/DOWNLOADS/releases/latest/download/" + d + "-" + e + ".zip" + '>Download</a>';
-    $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
-    b.innerHTML = "Latest release: " + json[0].tag_name
-    });
     }
   else
     a.innerHTML = "";
-    b.innerHTML = "";
 }
 Selectrandom();
 </script>
@@ -396,6 +390,7 @@ $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(functio
      $.each(json, function( index, e ){
           document.getElementById("changes").innerHTML += e.tag_name + ":<br>" + e.body + "<br><br>";
      });
+document.getElementById("version").innerHTML = "Latest release: " + json[0].tag_name;
 });
 </script>
 
@@ -426,18 +421,10 @@ function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
 }
 </script>
 
