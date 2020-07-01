@@ -388,7 +388,7 @@ Selectrandom();
 <script>
 $.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
      $.each(json, function( index, e ){
-          document.getElementById("changes").innerHTML += e.tag_name + ":<br>" + e.body + "<br><br>";
+          document.getElementById("changes").innerHTML += e.tag_name.fontsize(6) + "<br>" + e.body.fontsize(4) + "<br><br>";
      });
 document.getElementById("version").innerHTML = "Latest release: " + json[0].tag_name;
 });
