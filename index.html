@@ -159,7 +159,7 @@
 	     dType.style.display = "none";
 	     }
 	 else
-	     a.innerHTML = '<a href=' + "https://github.com/4u7157/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download<\/a>';
+	     a.innerHTML = '<a href=' + "https://github.com/pr0f35510n4l/DOWNLOADS/releases/download/" + b + "/" + d + "-" + e + ".zip" + '>Download<\/a>';
 	}
 	Selectrandom();
 	</script> 
@@ -186,7 +186,7 @@
 	});
 	</script> 
 	<script>
-	$.getJSON("https://api.github.com/repos/4u7157/DOWNLOADS/releases").done(function (json) {
+	$.getJSON("https://api.github.com/repos/pr0f35510n4l/DOWNLOADS/releases").done(function (json) {
 	    $.each(json, function( index, e ){
 	         document.getElementById("changes").innerHTML += e.tag_name.fontsize(6) + "<br>" + e.body.fontsize(4) + "<br><br>";
 	         $('#version11').append($('<option/>', { value: e.tag_name, text : e.tag_name }));
